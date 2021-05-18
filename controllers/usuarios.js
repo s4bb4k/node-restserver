@@ -63,18 +63,9 @@ const usuarioPUT = async (req, res = response) => {
 }
 
 const usuarioDELETE = async (req, res = response) => {
-
     const { id } = req.params;
-
-    // Fisicamente lo borramos
-    // const usuario = await Usuario.findByIdAndDelete( id );
-
     const usuariodb = await Usuario.findByIdAndUpdate( id, { estado: false } );
-
-    res.json({
-        ok: true,
-        usuariodb
-    });
+    res.json({ ok: true, usuariodb });
 }
 
 module.exports = {
